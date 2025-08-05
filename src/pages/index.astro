@@ -1,11 +1,399 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import boxers from "../boxers.json";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const year = new Date().getFullYear();
+
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="La Velada del Año 3">
+  <body class="relative">
+    <header class="relative">
+      <div
+        class="md:absolute md:left-1/2 md:-translate-x-1/2 flex flex-col gap-1 justify-center items-center mt-4 md:mt-0 md:top-8 z-10">
+        <img
+          class="w-32 lg:w-64 h-auto animate-fade-down "
+          alt="Logo de la Velada del Año, tercera edición"
+          src="/logo.webp"
+          width="385"
+          height="412"
+        />
+        <h1 class="boxing text-3xl lg:text-5xl text-center text-white">
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-b from-white via-gray-300 to-white inline-block leading-relaxed"
+            >la velada del año</span
+          >
+          <span class="text-yellow-300">III</span>
+        </h1>
+      </div>
+    </header>
+
+    <div class="relative">
+      <section
+        id="boxers"
+        class={"flex justify-between relative [&>div>img]:absolute [&>div>img]:bottom-0 [&>div>img]:w-auto [&>div>img]:animate-ease-in-out [&>div>img]:animate-duration-700 h-[40vh] md:h-[65vh] lg:h-screen pt-4 lg:pt-24 border-b border-white/10 overflow-hidden"}>
+
+        <div class="relative w-full">
+          <img
+            class="left-0 h-full z-50 animate-fade-right"
+            src="/boxers/coscu.webp"
+            alt="Coscu"
+            style={boxers.coscu.clip}
+          />
+          <img
+            class="left-[5%] h-[80%] z-40 animate-delay-150 animate-fade-right"
+            src="/boxers/mayichi.webp"
+            alt="Mayichi"
+            style={boxers.mayichi.clip}
+          />
+          <img
+            class="left-[15%] h-[75%] z-30 animate-delay-300 animate-fade-right"
+            src="/boxers/viruzz.webp"
+            alt="Viruzz"
+            style={boxers.viruzz.clip}
+          />
+          <img
+            class="left-[30%] h-[70%] z-20 animate-delay-500 animate-fade-right"
+            src="/boxers/fernanfloo.webp"
+            alt="Fernanfloo"
+            style={boxers.fernanfloo.clip}
+          />
+          <img
+            class="left-[45%] h-[68%] z-10 animate-delay-700 animate-fade-right"
+            src="/boxers/la-rivers.webp"
+            alt="La Rivers"
+            style={boxers["la-rivers"].clip}
+          />
+          <img
+            class="left-[50%] h-[63%] z-0 animate-delay-1000 animate-fade-right"
+            src="/boxers/papigavi.webp"
+            alt="Papigavi"
+            fetchpriority="low"
+            style={boxers.papigavi.clip}
+          />
+        </div>
+
+        <div class="relative w-full">
+          <img
+            class="right-0 h-full z-50 animate-fade-left"
+            src="/boxers/german.webp"
+            alt="Germán"
+            fetchpriority="high"
+            style={boxers.german.clip}
+          />
+          <img
+            class="right-[5%] h-[80%] z-40 animate-delay-150 animate-fade-left"
+            src="/boxers/amouranth.webp"
+            alt="Amouranth"
+            style={boxers.amouranth.clip}
+          />
+          <img
+            class="right-[15%] h-[75%] z-30 animate-delay-300 animate-fade-left"
+            src="/boxers/shelao.webp"
+            alt="Shelao"
+            style={boxers.shelao.clip}
+          />
+          <img
+            class="right-[30%] h-[70%] z-20 animate-delay-500 animate-fade-left"
+            src="/boxers/luzu.webp"
+            alt="Luzu"
+            style={boxers.luzu.clip}
+          />
+          <img
+            class="right-[42%] h-[66%] z-10 animate-delay-700 animate-fade-left"
+            src="/boxers/rivers.webp"
+            alt="Rivers"
+            style={boxers.rivers.clip}
+          />
+          <img
+            class="right-[50%] h-[63%] z-0 animate-delay-1000 animate-fade-left"
+            src="/boxers/ampeter.webp"
+            alt="Ampeter"
+            fetchpriority="low"
+            style={boxers.ampeter.clip}
+          />
+        </div>
+      </section>
+
+      <div
+        id="info"
+        class="block lg:absolute lg:bottom-48 z-50 mx-auto lg:left-1/2 lg:-translate-x-1/2">
+        <div class="flex flex-col">
+          <div class="px-5 pt-4 pb-2 bg-white text-black text-center">
+            <h2 class="boxing text-7xl"> JMg</h2>
+          </div>
+          <div class="px-5 pt-2 pb-1 bg-black text-white text-center">
+            <a
+              class="boxing text-[46px] hover:contrast-150 hover:scale-105 transition inline-block"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer">
+              <span class="text-white">twitch.tv/</span><span
+                class="text-yellow-300">ibai</span
+              >
+            </a>
+          </div>
+          <div class="px-5 pt-2 pb-1 bg-sky-600 text-black text-center">
+            <a
+              class="hover:contrast-150 hover:scale-105 transition boxing text-4xl inline-block text-white"
+              href=""
+              target="_blank"
+              rel="noopener noreferrer">Midudev</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="combat"
+        class="absolute bottom-48 z-50 mx-auto left-1/2 -translate-x-1/2 flex justify-center flex-col gap-y-0 opacity-0 invisible">
+        <div
+          class="px-5 pt-4 pb-2 mr-16 bg-black text-white text-center shadow-2xl shadow-white/50">
+          <h3 class="boxing uppercase text-7xl">MAYICHI</h3>
+        </div>
+
+        <!-- <img
+          src="vs.webp"
+          alt=""
+          width="64"
+          height="64"
+          class="w-16 mx-auto absolute left-1/2 -translate-x-1/2"
+        /> -->
+        <span class="left-3/4 -translate-x-1/2 top-18 boxing text-5xl text-yellow-500 block absolute">
+            VS
+        </span>
+
+        <div class="px-5 pt-4 pb-2 ml-16 bg-white text-black text-center">
+          <h3 class="boxing uppercase text-7xl">AMOURANTH</h3>
+        </div>
+        
+      </div>
+    </div>
+
+    <section
+      class="grid grid-cols-2 max-w-6xl gap-4 m-auto my-20 px-6 pt-20 pb-10 w-full h-[300px]">
+      <div
+        class="col-span-2 lg:col-span-1 flex w-[100%] h-[200px] rounded hover:scale-[102%] hover:contrast-[110%] transition border border-white/10">
+         <img
+          class="w-[200px] object-contain "
+          alt=""
+          src="https://joelmg.netlify.app/logo-jmg.webp"
+        />
+        <img
+          class="object-contain w-[150px]"
+          alt=""
+          src="https://joelmg.netlify.app/logo-jmg.webp"
+        />
+        <img
+          class="object-contain w-[100px]"
+          alt=""
+          src="https://joelmg.netlify.app/logo-jmg.webp"
+        />
+       
+      </div>
+      
+      <div
+        class="col-span-2 lg:col-span-1 w-[100%] rounded text-white p-5 hover:scale-[102%] hover:contrast-[110%] block transition border border-white/10">
+         <h3 class=" text-4xl mb-5 boxing " >¿COMO Inscribirte?</h3>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora libero doloremque labore vero, explicabo ducimus </p>
+       
+      </div>
+
+    </section>
+
+    <section class="max-w-6xl gap-4 m-auto px-6 pt-10 pb-20 w-full">
+      <h2
+        class="boxing text-white pb-4 uppercase text-center text-4xl font-extralight">
+        Cómo llegar al evento
+      </h2>
+      <iframe class="rounded shadow-lg shadow-gray-100 w-full min-h-auto border border-black/10 invert" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62614.49438369052!2d-74.2235967900131!3d11.23152237010545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef4f66ff59a173d%3A0x124b95fc153af9b8!2sSanta%20Marta%2C%20Magdalena!5e0!3m2!1ses-419!2sco!4v1753998315643!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <section
+      class="organiza flex flex-row flex-wrap items-center justify-center max-w-6xl gap-4 m-auto px-6 pt-20 pb-10 w-full h-auto">
+      <div
+        class=" w-[50%] rounded text-white p-5 hover:scale-[102%] hover:contrast-[110%] block transition border border-white/10">
+         <h3 class="text-4xl mb-5 boxing" >ORGANIZA</h3>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora libero doloremque labore vero, explicabo ducimus </p>
+       
+      </div>
+
+      <div
+        class=" w-[49%] flex items-center justify-center h-[200px] rounded hover:scale-[102%] hover:contrast-[110%] transition border border-white/10">
+         <img
+          class="w-[30%] object-contain "
+          alt=""
+          src="https://joelmg.netlify.app/logo-jmg.webp"
+        />
+        <img
+          class="object-contain w-[28%]"
+          alt=""
+          src="https://joelmg.netlify.app/logo-jmg.webp"
+        />
+        <img
+          class="object-contain w-[18%]"
+          alt=""
+          src="https://joelmg.netlify.app/logo-jmg.webp"
+        />
+       
+      </div>
+
+      <div
+        class="w-[49%] flex items-center justify-center h-[200px] rounded hover:scale-[102%] hover:contrast-[110%] transition border border-white/10">
+         <img
+          class="w-[18%] object-contain "
+          alt=""
+          src="https://joelmg.netlify.app/logo-jmg.webp"
+        />
+        <img
+          class="object-contain w-[28%]"
+          alt=""
+          src="https://joelmg.netlify.app/logo-jmg.webp"
+        />
+        <img
+          class="object-contain w-[30%]"
+          alt=""
+          src="https://joelmg.netlify.app/logo-jmg.webp"
+        />
+       
+      </div>
+      
+    </section>
+
+    <!-- Forma de poner una imagen de fondo -->
+    <!-- bg-[url('/footer_fondo_velada.webp')] -->
+
+    <footer class="w-full flex items-center  m-auto relative">
+
+      <div
+        class="mx-auto max-w-6xl w-full overflow-hidden px-6 pt-10 pb-10 sm:py-2 lg:px-8">
+        <div
+          class="mt-10 flex flex-col md:flex-row gap-y-8 justify-between items-center">
+          <nav class="flex gap-x-4 flex-grow basis-0 justify-start">
+            <div class="flex gap-4">
+                <a href="#" aria-label="Instagram" 
+                  class="flex items-center justify-center text-white text-xl transition-all duration-200 ease-in-out  hover:text-yellow-300 hover:-translate-y-0.5">
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </a>
+                    
+                <a href="#" aria-label="Twitter/X"
+                  class="flex items-center justify-center text-white text-xl transition-all duration-200 ease-in-out  hover:text-yellow-300 hover:-translate-y-0.5">
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </a>
+                
+                <a href="#" aria-label="GitHub"
+                  class="flex items-center justify-center text-white text-xl transition-all duration-200 ease-in-out  hover:text-yellow-300 hover:-translate-y-1">
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                </a>
+                    
+                <a href="#" aria-label="TikTok"
+                  class="flex items-center justify-center text-white text-xl transition-all duration-200 ease-in-out  hover:text-yellow-300 hover:-translate-y-1">
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.321 5.562a5.124 5.124 0 0 1-.443-.258 6.228 6.228 0 0 1-1.137-.966c-.849-.936-1.316-2.045-1.316-3.128C16.425.629 16.425 0 16.425 0h-3.821s.033 11.54.033 11.54c0 2.03-1.651 3.681-3.681 3.681s-3.681-1.651-3.681-3.681 1.651-3.681 3.681-3.681c.337 0 .662.048.969.138V4.242a7.329 7.329 0 0 0-.969-.124C4.133 4.118.452 7.8.452 12.281s3.681 8.163 8.163 8.163 8.163-3.681 8.163-8.163V8.987a9.648 9.648 0 0 0 5.544 1.72V6.886c-1.171 0-2.214-.455-3.001-1.324z"/>
+                  </svg>
+                </a>
+            </div>
+          </nav>
+
+          <img
+            src="logo-2.png"
+            alt="La Velada del Año"
+            class="w-80 h-auto logof"
+          />
+
+          <div class="flex justify-end flex-grow basis-0">
+            <a href="https://joelmg.netlify.app/">
+              <img
+                src="https://joelmg.netlify.app/logo-jmg.webp"
+                alt="Patrocinadores de la Velada del Año"
+                class="w-44 h-auto"
+              />
+            </a>
+          </div>
+        </div>
+        <p class="mt-1 text-center text-xs leading-5 text-white">
+          &copy; {year} JMG
+        </p>
+      </div>
+    </footer>
+  </body>
 </Layout>
+<style is:global>
+  body {
+    background: #131313;
+  }
+  .logof{
+    filter: drop-shadow(1px 1px 1px #ffde206f);
+  }
+
+  @media(max-width: 840px) {
+    .organiza > div{
+      width: 90%;
+    }
+  }
+</style>
+
+<script>
+  const $boxers = document.querySelector("#boxers");
+  const $boxersImages = $boxers.querySelectorAll("img");
+
+  const $info = document.querySelector("#info") as HTMLElement;
+  const $combat = document.querySelector("#combat") as HTMLElement;
+
+  $boxersImages.forEach(($img) => {
+    $img.addEventListener("mouseleave", () => {
+      $boxersImages.forEach(($img) => {
+        $img.style.filter = "none";
+        $img.style.transition = "all .3s ease-in-out";
+        $img.style.scale = "1";
+      });
+
+      $info.style.opacity = "1";
+      $info.style.transition = "all .3s ease-in-out";
+
+      $combat.style.opacity = "0";
+      $combat.style.transition = "all .3s ease-in-out";
+    });
+
+    $img.addEventListener("mouseenter", () => {
+      const sectionImages = $img.parentNode.children;
+      const position = Array.from(sectionImages).indexOf($img);
+
+      // get image for the left side and the right side
+      const [leftBoxer, rightBoxer] = [
+        $boxersImages[position], // de la izquierda
+        $boxersImages[position + $boxersImages.length / 2], // de la derecha
+      ];
+
+      // ocultamos la informacion
+      $info.style.opacity = "0";
+      $info.style.transition = "all .3s ease-in-out";
+
+      $combat.style.opacity = "1";
+      $combat.style.visibility = "visible";
+      $combat.style.transition = "all .3s ease-in-out";
+
+      const [firstBoxerName, secondBoxerName] = $combat.querySelectorAll("h3");
+      firstBoxerName.innerText = leftBoxer.alt;
+      secondBoxerName.innerText = rightBoxer.alt;
+
+      // ocultar los boxeadores que no interesan
+      $boxersImages.forEach(($img) => {
+        $img.style.filter = "blur(2px) grayscale(.8)";
+        $img.style.transition = "all .3s ease-in-out";
+      });
+
+      leftBoxer.style.scale = "1.2";
+      leftBoxer.style.filter = "contrast(1.1)";
+      leftBoxer.style.transition = "all .3s ease-in-out";
+
+      rightBoxer.style.scale = "1.2";
+      rightBoxer.style.filter = "contrast(1.1)";
+      rightBoxer.style.transition = "all .3s ease-in-out";
+    });
+  });
+</script>

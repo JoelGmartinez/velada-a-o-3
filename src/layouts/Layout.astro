@@ -1,22 +1,57 @@
+---                           
+ import '../styles/global.css' 
+
+ const { title } = Astro.props;
+
+
+---   
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="author" content="Joel Martínez Gómez" />
+		<title>{ title }</title>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style>
+<style is:global>
 	html,
 	body {
+		box-sizing: border-box;
+		padding: 0;
 		margin: 0;
 		width: 100%;
 		height: 100%;
 	}
+
+	.boxing  {
+	font-family: "Boxing", sans-serif;
+}
+
+	.striped{
+	font-family: "Striped", sans-serif;
+	}
+
+	@font-face {
+	font-family: "Boxing";
+	src: url(" /public/font/boxing.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Striped";
+	src: url(" /public/font/boxing-striped.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
 </style>
